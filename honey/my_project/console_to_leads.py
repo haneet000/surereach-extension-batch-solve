@@ -9,7 +9,7 @@ class Untagged_leads():
         self.index = 0
         self.lead_id = None
         # fetch data down arrow side
-        self.main_url = "https://surepass.salesmate.io/apis/deal/v1/board-view/cards?rows=6&from=0"
+        self.main_url = "https://surepass.salesmate.io/apis/deal/v1/board-view/cards?rows=12&from=0"
         self.email_logs_url = "https://app.surepass.io/api/v1/admin/email-logs"
         self.salemate_id_to_console_url = "https://app.surepass.io/api/v1/admin/set-crm-profile-url"
         self.main_url_payload_var = main_url_payload()
@@ -35,21 +35,17 @@ class Untagged_leads():
         'x-workspace-id': ''
     }
 
-    email_logs_headers = {
-          'authority': 'app.surepass.io',
-          'accept': 'application/json, text/plain, */*',
-          'accept-language': 'en-US,en;q=0.9',
-          'content-type': 'application/json',
-          'origin': 'https://console-admin.surepass.io',
-          'referer': 'https://console-admin.surepass.io/',
-          'sec-ch-ua': '"Not A(Brand";v="99", "Google Chrome";v="121", "Chromium";v="121"',
-          'sec-ch-ua-mobile': '?0',
-          'sec-ch-ua-platform': '"Windows"',
-          'sec-fetch-dest': 'empty',
-          'sec-fetch-mode': 'cors',
-          'sec-fetch-site': 'same-site',
-          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36'
-        }
+    email_logs_headers =headers = {
+  'sec-ch-ua': '"Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"',
+  'Accept': 'application/json, text/plain, */*',
+  'Content-Type': 'application/json',
+  'Referer': 'https://console-admin.surepass.io/',
+  'sec-ch-ua-mobile': '?0',
+  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36',
+  'sec-ch-ua-platform': '"Windows"'
+}
+
+
 
     lead_header = {
         'authority': 'surepass.salesmate.io',
@@ -72,30 +68,40 @@ class Untagged_leads():
     }
 
     salemate_id_to_console_headers = {
+              'authority': 'app.surepass.io',
+              'accept': 'application/json, text/plain, */*',
+              'accept-language': 'en-US,en;q=0.9',
+              'content-type': 'application/json',
+              'cookie': 'sib_cuid=79a397ff-3504-4c4b-8e93-52299c2cdad5; _gcl_au=1.1.1151342286.1707566274; _ga=GA1.1.819824749.1707566274; messagesUtk=59de5c0ecd8e4c1199abd3a52d09f504; _hjSessionUser_2837838=eyJpZCI6ImYwMGNiMDI5LTRjYzQtNWQ5Yy1hYTA5LWQ0MjIyMGJiNmZiOSIsImNyZWF0ZWQiOjE3MDc1NjY0MTYzMTAsImV4aXN0aW5nIjp0cnVlfQ==; ajs_anonymous_id=%225c897b5d-47b7-4587-b067-475f8e81610c%22; hubspotutk=e1e1bb92912b4f2c9fd1402a40942aef; GCP_IAP_UID=117281239643461000806; cf_clearance=WOvfHkXht5SA2P0cojmiLSLbddoEeun3bvZYVJBEugw-1709552738-1.0.1.1-ZwvztLQd.8Ihmwlnb7YA1QCT9aIff7sRJJ4ZrF53gst46vYI7aDdluzmDlDPh71.gyIO4cH3FzrTMBsOc_LgEw; __hstc=190410484.e1e1bb92912b4f2c9fd1402a40942aef.1707566865768.1707566865768.1709552738098.2; _ga_XTFP6C19HL=GS1.1.1709552734.2.1.1709553783.0.0.0; access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTA4NjYwOTYsInN1YiI6ImhhbmVldHNpbmdoLnN1cmVwYXNzQGdtYWlsLmNvbSIsInNjb3BlcyI6bnVsbCwidHlwZSI6ImFjY2VzcyJ9.CqixM0gf-7eErhAGAnni0opFaug_mrU-ekuinThRUjI; refresh-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTM0MzY0OTYsInN1YiI6ImhhbmVldHNpbmdoLnN1cmVwYXNzQGdtYWlsLmNvbSIsInNjb3BlcyI6bnVsbCwidHlwZSI6InJlZnJlc2gifQ.ibswaslHW0fjJ7_TCWrPnt4cjRP-J3pViTdXx0zojtk',
+              'origin': 'https://console-admin.surepass.io',
+              'referer': 'https://console-admin.surepass.io/',
+              'sec-ch-ua': '"Chromium";v="122", "Not(A:Brand";v="24", "Google Chrome";v="122"',
+              'sec-ch-ua-mobile': '?0',
+              'sec-ch-ua-platform': '"Windows"',
+              'sec-fetch-dest': 'empty',
+              'sec-fetch-mode': 'cors',
+              'sec-fetch-site': 'same-site',
+              'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
+            }
+
+
+    email_id_logs_headers = {
           'authority': 'app.surepass.io',
           'accept': 'application/json, text/plain, */*',
           'accept-language': 'en-US,en;q=0.9',
           'content-type': 'application/json',
+          'cookie': 'sib_cuid=79a397ff-3504-4c4b-8e93-52299c2cdad5; _gcl_au=1.1.1151342286.1707566274; _ga=GA1.1.819824749.1707566274; messagesUtk=59de5c0ecd8e4c1199abd3a52d09f504; _hjSessionUser_2837838=eyJpZCI6ImYwMGNiMDI5LTRjYzQtNWQ5Yy1hYTA5LWQ0MjIyMGJiNmZiOSIsImNyZWF0ZWQiOjE3MDc1NjY0MTYzMTAsImV4aXN0aW5nIjp0cnVlfQ==; ajs_anonymous_id=%225c897b5d-47b7-4587-b067-475f8e81610c%22; hubspotutk=e1e1bb92912b4f2c9fd1402a40942aef; GCP_IAP_UID=117281239643461000806; cf_clearance=WOvfHkXht5SA2P0cojmiLSLbddoEeun3bvZYVJBEugw-1709552738-1.0.1.1-ZwvztLQd.8Ihmwlnb7YA1QCT9aIff7sRJJ4ZrF53gst46vYI7aDdluzmDlDPh71.gyIO4cH3FzrTMBsOc_LgEw; __hstc=190410484.e1e1bb92912b4f2c9fd1402a40942aef.1707566865768.1707566865768.1709552738098.2; _ga_XTFP6C19HL=GS1.1.1709552734.2.1.1709553783.0.0.0; access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTA4NjQ4NjgsInN1YiI6ImhhbmVldHNpbmdoLnN1cmVwYXNzQGdtYWlsLmNvbSIsInNjb3BlcyI6bnVsbCwidHlwZSI6ImFjY2VzcyJ9.Dod0PDk3p50eO43M9lW626dDnv16-MMD3iL0NrkWF2Q; refresh-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTM0MzUyNjgsInN1YiI6ImhhbmVldHNpbmdoLnN1cmVwYXNzQGdtYWlsLmNvbSIsInNjb3BlcyI6bnVsbCwidHlwZSI6InJlZnJlc2gifQ.LJOLwRUfGe55JUkRju2HUOkrOrvK1Og-VPxibGzgCiU',
           'origin': 'https://console-admin.surepass.io',
           'referer': 'https://console-admin.surepass.io/',
+          'sec-ch-ua': '"Chromium";v="122", "Not(A:Brand";v="24", "Google Chrome";v="122"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-dest': 'empty',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-site': 'same-site',
           'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
         }
 
-    email_id_logs_headers ={
-      'authority': 'app.surepass.io',
-      'accept': 'application/json, text/plain, */*',
-      'accept-language': 'en-US,en;q=0.9',
-      'cookie': 'sib_cuid=79a397ff-3504-4c4b-8e93-52299c2cdad5; _gcl_au=1.1.1151342286.1707566274; _ga=GA1.1.819824749.1707566274; messagesUtk=59de5c0ecd8e4c1199abd3a52d09f504; _hjSessionUser_2837838=eyJpZCI6ImYwMGNiMDI5LTRjYzQtNWQ5Yy1hYTA5LWQ0MjIyMGJiNmZiOSIsImNyZWF0ZWQiOjE3MDc1NjY0MTYzMTAsImV4aXN0aW5nIjp0cnVlfQ==; ajs_anonymous_id=%225c897b5d-47b7-4587-b067-475f8e81610c%22; hubspotutk=e1e1bb92912b4f2c9fd1402a40942aef; GCP_IAP_UID=117281239643461000806; cf_clearance=WOvfHkXht5SA2P0cojmiLSLbddoEeun3bvZYVJBEugw-1709552738-1.0.1.1-ZwvztLQd.8Ihmwlnb7YA1QCT9aIff7sRJJ4ZrF53gst46vYI7aDdluzmDlDPh71.gyIO4cH3FzrTMBsOc_LgEw; __hstc=190410484.e1e1bb92912b4f2c9fd1402a40942aef.1707566865768.1707566865768.1709552738098.2; _ga_XTFP6C19HL=GS1.1.1709552734.2.1.1709553783.0.0.0; access-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MDk2NjM0MDgsInN1YiI6ImhhbmVldHNpbmdoLnN1cmVwYXNzQGdtYWlsLmNvbSIsInNjb3BlcyI6bnVsbCwidHlwZSI6ImFjY2VzcyJ9.JaZRkvIRcqm22gZl0kKxxcxIXydDZkGdGqcJgysTIio; refresh-token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTIyMzM4MDgsInN1YiI6ImhhbmVldHNpbmdoLnN1cmVwYXNzQGdtYWlsLmNvbSIsInNjb3BlcyI6bnVsbCwidHlwZSI6InJlZnJlc2gifQ.ZOz8Rib-Ztdu-ubxIkwFuxFzjOVXU_QeNx3EEe7tpjA',
-      'origin': 'https://console-admin.surepass.io',
-      'referer': 'https://console-admin.surepass.io/',
-      'sec-ch-ua': '"Chromium";v="122", "Not(A:Brand";v="24", "Google Chrome";v="122"',
-      'sec-ch-ua-mobile': '?0',
-      'sec-ch-ua-platform': '"Windows"',
-      'sec-fetch-dest': 'empty',
-      'sec-fetch-mode': 'cors',
-      'sec-fetch-site': 'same-site',
-      'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
-    }
 
 
     def main_func(self):
@@ -119,11 +125,9 @@ class Untagged_leads():
             print(f"An error occurred in main_func: {e}")
 
     def email_logs(self, email_id_request_res):
-        # email_id_logs_payload = json.dumps({"target_user_email": email_id_request_res})
-        email_logs_url = f"https://console-admin.surepass.io/self-signup/profile/{email_id_request_res}"
-        print(email_logs_url)
+        payload = json.dumps({"target_user_email": email_id_request_res})
         try:
-            email_log_response = self.session.get(email_logs_url, headers=self.email_id_logs_headers)
+            email_log_response = self.session.post(self.email_logs_url, headers=self.email_logs_headers, data = payload, verify=False)
             if email_log_response.status_code == 200:
 
                 lead_url = f"https://surepass.salesmate.io/apis/deal/v4/modules/4/object/{self.lead_id}/notes"
@@ -134,12 +138,12 @@ class Untagged_leads():
                 })
                 lead_id_response = self.session.post(lead_url, headers=self.lead_header, data=lead_id_payload)
                 print(lead_id_response.status_code)
+
                 crm_profile_url = f'https://surepass.salesmate.io/#/app/deals/{self.lead_id}/detail'
                 salemates_id_to_console_payload = json.dumps({"target_user_email": email_id_request_res,
                                                               "crm_profile_url":crm_profile_url })
-                salemate_id_to_console_res = self.session.post(self.salemate_id_to_console_url,
-                                                               headers=self.salemate_id_to_console_headers,
-                                                               payload = salemates_id_to_console_payload)
+
+                salemate_id_to_console_res = self.session.post(self.salemate_id_to_console_url,headers=self.salemate_id_to_console_headers, data = salemates_id_to_console_payload)
                 print(f'{salemate_id_to_console_res.status_code} Salemate link added on console')
                 self.index += 1
             else:
